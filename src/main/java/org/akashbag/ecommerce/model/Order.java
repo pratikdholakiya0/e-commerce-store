@@ -1,0 +1,41 @@
+package org.akashbag.ecommerce.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.akashbag.ecommerce.enums.OrderStatus;
+import org.akashbag.ecommerce.enums.PaymentStatus;
+import org.akashbag.ecommerce.enums.Role;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document(collection = "orders")
+public class Order {
+    @Id
+    private String id;
+    @Indexed
+    private String userId;
+    private List<OrderItem> items;
+    private OrderStatus orderStatus;
+    private PaymentStatus paymentStatus;
+    private String paymentId;
+    private Address shippingAddress;
+    private double cancellationPenalty;
+    private double totalPrice;
+    private LocalDateTime expectedDeliveryDate;
+    private String arrivedAt;
+    private Role updatedBy;
+    @CreatedDate
+    private LocalDateTime orderDate;
+}
