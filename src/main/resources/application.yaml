@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ecommerce
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: ${DB_URI}
+  main:
+    allow-circular-references: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL}
+    password: ${PASS}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true      # This is the missing piece
+            required: true
+
+cloudinary:
+  cloud_name: ${CLOUD_NAME}
+  api_key : ${CLOUD_API}
+  api_secret: ${CLOUD_SECRET}
+
+twilio:
+  account_sid: ${TWILIO_ACCOUNT_SID}
+  auth_token: ${AUTH_TOKEN}
+  phone_number: ${PHONE_NO}
+
+jwt:
+  secret: ${TOKEN}
+  expiration: ${EXPIRY}
