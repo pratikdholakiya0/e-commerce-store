@@ -6,6 +6,7 @@ import org.akashbag.ecommerce.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -30,7 +31,7 @@ public class SecurityConfig {
                     // auth requests
                     r.requestMatchers("/auth/**").permitAll()
                              .requestMatchers("/invoice/**").permitAll()
-                             .requestMatchers("/product/search").permitAll()
+                             .requestMatchers(HttpMethod.GET, "/product/**").permitAll()
                              .requestMatchers(
                                      "/api/cart/**",
                                      "/orders/cancel/",
