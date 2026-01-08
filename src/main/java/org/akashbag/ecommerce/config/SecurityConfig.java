@@ -30,7 +30,7 @@ public class SecurityConfig {
                     // auth requests
                     r.requestMatchers("/auth/**").permitAll()
                              .requestMatchers("/invoice/**").permitAll()
-                             .requestMatchers("/products").permitAll()
+                             .requestMatchers("/product/search").permitAll()
                              .requestMatchers(
                                      "/api/cart/**",
                                      "/orders/cancel/",
