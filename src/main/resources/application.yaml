@@ -5,6 +5,7 @@ spring:
     mongodb:
       auto-index-creation: true
       uri: ${SPRING_DATA_MONGODB_URI}
+      databse: ${DB_NAME}
   main:
     allow-circular-references: true
   mail:
